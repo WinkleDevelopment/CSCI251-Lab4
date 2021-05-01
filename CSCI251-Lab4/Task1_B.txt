@@ -1,0 +1,13 @@
+class B {
+public:
+	virtual void X() = 0;
+};
+
+class D : B {
+public:
+	virtual void X() { cout << "D object" << endl; }
+};
+
+int main() {
+	B objB;
+}The following code will not complie due to the conditions of the created object which can't cannot use virtual method due to the declared dervied function incide the derived class which overrides the "parent"declaration
