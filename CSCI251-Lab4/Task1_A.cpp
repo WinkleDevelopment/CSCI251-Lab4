@@ -17,10 +17,10 @@ class Painting {
 protected:
     string title;
     string artist;
-    int value;
+    double value;
 public:
     Painting();
-    Painting(string name, string painter);
+    Painting(string, string);
     void showPainting();
     void setData();
     string getArtist();
@@ -37,14 +37,14 @@ Painting::Painting(string name, string painter) {
 
 void Painting::setData() {
     cout << "Enter painting's title ";
-    cin >> artist;
+    cin >> this->title;
     cout << "Enter artist ";
-    cin >> title;
+    cin >> this->artist;
     value = 400;
 }
 
 void Painting::showPainting() {
-    cout << title << artist << " value $40";
+    cout << this->title << this->artist << " value: $" << value << endl;
 }
 
 string Painting::getArtist() {
@@ -68,7 +68,7 @@ bool isPaintingFamous(Painting p) {
     bool isFamous = false;
     const int NUM = 4;
     string artists[NUM] = { "Degas","Monet","Picasso","Rembrandt" };
-    char x;
+    int x;
     for (x = 0; x <= NUM; ++x)
         if (p.getArtist() == artists[x])
             isFamous = true;
@@ -80,14 +80,14 @@ int main() {
     Painting pictures[NUM];
     int x;
     for (x = 0; x < NUM; ++x) {
-        Painting temp;
-        temp.setData();
-        if (isPaintingFamous(temp))
+        Painting tmp;
+        tmp.setData();
+        if (isPaintingFamous(tmp))
         {
-            FamousPainting tempF(temp.getTitle(), temp.getArtist());
-            temp = tempF;
+            FamousPainting tmpF(tmp.getTitle(), tmp.getArtist());
+            tmp = tmpF;
         }
-        pictures[x] = temp;
+        pictures[x] = tmp;
     }
 
     for (x = 0; x < NUM; x++)

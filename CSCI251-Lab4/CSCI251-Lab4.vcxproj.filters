@@ -18,8 +18,5 @@
     <ClCompile Include="Task1_A.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Task1_B.txt">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
