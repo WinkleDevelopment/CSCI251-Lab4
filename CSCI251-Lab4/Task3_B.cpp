@@ -43,12 +43,7 @@ protected:
 	string port = "";
 public:
 	SeaTransport() {}
-	SeaTransport(string a, int b, double c, string d) : Transportation(model, year, price) {
-		this->model = a;
-		this->year = b;
-		this->price = c;
-		this->port = d;
-	}
+	SeaTransport(string a, int b, double c, string d) : Transportation(model, year, price) {}
 	~SeaTransport() {}
 };
 
