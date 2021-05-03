@@ -17,21 +17,22 @@ using namespace std;
 // Base Object
 class Transportation {
 protected:
-	string model;
-	int year;
-	float price;
+	string model = "";
+	int year = 0;
+	double price = 0.00;
 public:
-	Transportation(string, int, float);
-	~Transportation();
-	virtual void display();
-	virtual void setData();
+	Transportation() {}
+	Transportation(string, int, double) {}
+	~Transportation() {}
+	virtual void display() {}
+	virtual void setData() {}
 	string getModel() {
 		return model;
 	}
 	int getYear() {
 		return year;
 	}
-	float getPrice() {
+	double getPrice() {
 		return price;
 	}
 };
@@ -39,37 +40,46 @@ public:
 // Sub-Objects
 class SeaTransport : public Transportation {
 protected:
-	string port;
+	string port = "";
 public:
-	SeaTransport(string, int, float, string) : Transportation(model, year, price) {}
+	SeaTransport() {}
+	SeaTransport(string a, int b, double c, string d) : Transportation(model, year, price) {
+		this->model = a;
+		this->year = b;
+		this->price = c;
+		this->port = d;
+	}
 	~SeaTransport() {}
 };
 
 class LandTransport : public Transportation {
 protected:
-	string area;
+	string area = "";
 public:
-	LandTransport(string, int, float, string) : Transportation(model, year, price) {}
+	LandTransport() {}
+	LandTransport(string, int, double, string) : Transportation(model, year, price) {}
 	~LandTransport() {}
 };
 
 class AirTransport : public Transportation {
 protected:
-	string sector;
+	string sector = "";
 public:
-	AirTransport(string, int, float, string) : Transportation(model, year, price) {}
+	AirTransport() {}
+	AirTransport(string, int, double, string) : Transportation(model, year, price) {}
 	~AirTransport() {}
 };
 
 // Sub-Object Specific Classes
 class Canoe : public SeaTransport {
 private:
-	int maxDepth;
+	int maxDepth = 0;
 public:
-	Canoe(string, int, float, string, int) : SeaTransport(model, year, price, port) {}
+	Canoe() {}
+	Canoe(string, int, double, string, int mD) : SeaTransport(model, year, price, port) {}
 	~Canoe() {}
 	void display();
-	void setData(string, int, float, string, int);
+	void setData(string, int, double, string, int);
 };
 
 void Canoe::display() {
@@ -81,22 +91,23 @@ void Canoe::display() {
 	cout << "Max Depth: " << maxDepth << endl;
 }
 
-void Car::setData(string canoeModel, int canoeYear, float canoePrice, string canoePort, int canoeMaxDepth) {
-	this->model = canoeModel;
-	this->year = canoeYear;
-	this->price = canoePrice;
-	this->area = canoePort;
-	this->engineCapacity = canoeMaxDepth;
+void Canoe::setData(string canoeModel, int canoeYear, double canoePrice, string canoePort, int canoeMaxDepth) {
+	model = canoeModel;
+	year = canoeYear;
+	price = canoePrice;
+	port = canoePort;
+	maxDepth = canoeMaxDepth;
 }
 
 class Car : public LandTransport {
 private:
-	int engineCapacity;
+	int engineCapacity = 0;
 public:
-	Car(string, int, float, string, int) : LandTransport(model, year, price, area) {}
+	Car() {}
+	Car(string, int, double, string, int) : LandTransport(model, year, price, area) {}
 	~Car() {}
 	void display();
-	void setData(string, int, float, string, int);
+	void setData(string, int, double, string, int);
 };
 
 void Car::display() {
@@ -108,51 +119,72 @@ void Car::display() {
 	cout << "Engine Capacity: " << engineCapacity << endl;
 }
 
-void Car::setData(string carModel, int carYear, float carPrice, string carArea, int carEngineCapacity) {
-	this->model = carModel;
-	this->year = carYear;
-	this->price = carPrice;
-	this->area = carArea;
-	this->engineCapacity = carEngineCapacity;
+void Car::setData(string carModel, int carYear, double carPrice, string carArea, int carEngineCapacity) {
+	model = carModel;
+	year = carYear;
+	price = carPrice;
+	area = carArea;
+	engineCapacity = carEngineCapacity;
 }
 
-class Hovercraft : public AirTransport { // Need to be derived from two classes :P
+class Hovercraft : public AirTransport, virtual public LandTransport {
 private:
-	int maxSpeed;
+	int maxSpeed = 0;
 public:
-	Hovercraft(string, int, float, string, int) : AirTransport(model, year, price, sector) {}
+	Hovercraft() {}
+	Hovercraft(string, int, double, string, string, int) : AirTransport(Transportation::model, Transportation::year, Transportation::price, AirTransport::sector), LandTransport(Transportation::model, Transportation::year, Transportation::price, LandTransport::area) {}
 	~Hovercraft() {}
 	void display();
-	void setData(string, int, float, string, int);
+	void setData(string, int, double, string, string, int);
 };
 
 void Hovercraft::display() {
 	cout << "Hovercraft: " << endl;
-	cout << "Model: " << model << endl;
-	cout << "Year: " << year << endl;
-	cout << "Price: $" << price << endl;
+	cout << "Model: " << Transportation::model << endl;
+	cout << "Year: " << Transportation::year << endl;
+	cout << "Price: $" << Transportation::price << endl;
 	cout << "Sector: " << sector << endl;
+	cout << "Area: " << area << endl;
 	cout << "Max Speed: " << maxSpeed << endl;
 }
 
-void Hovercraft::setData(string hovercraftModel, int hovercraftYear, float hovercraftPrice, string hovercraftSector, int hovercraftMaxSpeed) {
-	this->model = hovercraftModel;
-	this->year = hovercraftYear;
-	this->price = hovercraftPrice;
-	this->sector = hovercraftSector;
-	this->maxSpeed = hovercraftMaxSpeed;
+void Hovercraft::setData(string hovercraftModel, int hovercraftYear, double hovercraftPrice, string hovercraftSector, string hovercraftArea, int hovercraftMaxSpeed) {
+	Transportation::model = hovercraftModel;
+	Transportation::year = hovercraftYear;
+	Transportation::price = hovercraftPrice;
+	sector = hovercraftSector;
+	area = hovercraftArea;
+	maxSpeed = hovercraftMaxSpeed;
 }
 
 // Driver Code
 int main() {
 
-	Canoe myCanoe("a", 2000, 2500.3, "Sydney", 40);
-	Car myCar("b", 4000, 12500.7, "Wollongong", 128);
-	Hovercraft myHovercaft("c", 6000, 22500.3, "Aplha", 150);
+	Canoe myCanoe;
+	Car myCar;
+	Hovercraft myHovercraft;
 
-	myCanoe.display();
-	myCar.display();
-	myHovercaft.display();
+	try {
+
+		myCanoe.setData("a", 1, 252.5, "b", 100);
+		myCanoe.display();
+
+		myCar.setData("k", 1, 252.5, "q", 100);
+		myCar.display();
+
+		myHovercraft.setData("x", 1, 252.5, "s", "u", 100);
+		myHovercraft.display();
+
+		vector<Transportation*> transport(0);
+
+		transport.push_back(&myCanoe);
+		transport.push_back(&myCar);
+		/*transport.push_back(&myHovercraft);
+			Unable to add to vector array as the Hovercraft class is considered too ambiguous
+		*/
+	} catch (const std::bad_alloc& ba) {
+		cerr << "bad_alloc caught: " << ba.what() << endl;
+	}
 
 	return 1;
 

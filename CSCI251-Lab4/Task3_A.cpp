@@ -88,21 +88,21 @@ void Lizard::showLizard() {
     cout << "License fee: $" << licenseFee << endl;
 }
 
-int main() {
-    Cat myCat;
-    myCat.setCatData("Tigger", "Fluffy unit", 3, 4.6);
-    myCat.showCat();
-
-    Lizard myLizard;
-    myLizard.setLizardData("Scales", "Devil", 1, "Purple");
-    myLizard.showLizard();
-
-    vector<Animal> hierarchy;
-    hierarchy.reserve(2);
-
-    hierarchy.push_back(myCat);
-    hierarchy.push_back(myLizard);
-
-    return 1;
-
-}
+//int main() {
+//    Cat myCat;
+//    myCat.setCatData("Tigger", "Fluffy unit", 3, 4.6);
+//    myCat.showCat();
+//
+//    Lizard myLizard;
+//    myLizard.setLizardData("Scales", "Devil", 1, "Purple");
+//    myLizard.showLizard();
+//
+//    vector<Animal*> hierarchy;
+//    hierarchy.reserve(2);
+//
+//    hierarchy.push_back(&myCat);
+//    hierarchy.push_back(&myLizard);
+//
+//    return 1;
+//
+//}

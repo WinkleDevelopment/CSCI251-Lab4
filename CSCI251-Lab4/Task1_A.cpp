@@ -17,7 +17,7 @@ class Painting {
 protected:
     string title;
     string artist;
-    double value;
+    double value = 0;
 public:
     Painting();
     Painting(string, string);
@@ -75,21 +75,21 @@ bool isPaintingFamous(Painting p) {
     return isFamous;
 }
 
-int main() {
-    const int NUM = 4;
-    Painting pictures[NUM];
-    int x;
-    for (x = 0; x < NUM; ++x) {
-        Painting tmp;
-        tmp.setData();
-        if (isPaintingFamous(tmp))
-        {
-            FamousPainting tmpF(tmp.getTitle(), tmp.getArtist());
-            tmp = tmpF;
-        }
-        pictures[x] = tmp;
-    }
-
-    for (x = 0; x < NUM; x++)
-        pictures[x].showPainting();
-}
+//int main() {
+//    const int NUM = 4;
+//    Painting pictures[NUM];
+//    int x;
+//    for (x = 0; x < NUM; ++x) {
+//        Painting tmp;
+//        tmp.setData();
+//        if (isPaintingFamous(tmp))
+//        {
+//            FamousPainting tmpF(tmp.getTitle(), tmp.getArtist());
+//            tmp = tmpF;
+//        }
+//        pictures[x] = tmp;
+//    }
+//
+//    for (x = 0; x < NUM; x++)
+//        pictures[x].showPainting();
+//}

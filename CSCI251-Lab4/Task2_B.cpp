@@ -63,26 +63,26 @@ public:
 };
 float Contract::rate = 70.00;
 
-int main()
-{
-    Person* worker = new Person("John");
-    Company* company = new Company("Bell Pty Ltd");
-
-    Contract* cont1 = new Contract(worker, company, 5247, 12);
-
-    cout << worker->getName() << " has a contract number "
-        << worker->getContract()->getContractNumber()
-        << " with " << worker->getContract()->getCompName()
-        << endl;
-
-    cout << "Duration: " << worker->getContract()->getDuration()
-        << " months" << endl;
-    cout << "Rate: $" << worker->getContract()->getRate()
-        << "/hr " << endl;
-
-
-    return 0;
-}
+//int main()
+//{
+//    Person* worker = new Person("John");
+//    Company* company = new Company("Bell Pty Ltd");
+//
+//    Contract* cont1 = new Contract(worker, company, 5247, 12);
+//
+//    cout << worker->getName() << " has a contract number "
+//        << worker->getContract()->getContractNumber()
+//        << " with " << worker->getContract()->getCompName()
+//        << endl;
+//
+//    cout << "Duration: " << worker->getContract()->getDuration()
+//        << " months" << endl;
+//    cout << "Rate: $" << worker->getContract()->getRate()
+//        << "/hr " << endl;
+//
+//
+//    return 0;
+//}
 
 /*
 

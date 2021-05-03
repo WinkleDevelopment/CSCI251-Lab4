@@ -17,7 +17,7 @@ class Box {
 private:
 	vector<Box> boxList;
 	int cnt = 0;
-	static int total;
+	int total = 0;
 public:
 	Box();
 	~Box();
@@ -57,30 +57,30 @@ void Box::removeBox() {
 	cout << "Removed Mini Box from Box" << endl;
 }
 
-int main() {
-
-	Box box1;
-	Box box2;
-
-	// Reports for Objects
-	box1.report();
-	box2.report();
-
-	// Add Box As Mini to Other Box
-	box1.addBox(box2);
-
-	// Report Box 1 Object
-	box1.report();
-
-	// Remove Mini Box from Box
-	box1.removeBox();
-
-	// Report Box 1 Object
-	box1.report();
-
-	// Remove Boxes
-	box1.~Box();
-	box2.~Box();
-
-	return 1;
-}
+//int main() {
+//
+//	Box box1;
+//	Box box2;
+//
+//	// Reports for Objects
+//	box1.report();
+//	box2.report();
+//
+//	// Add Box As Mini to Other Box
+//	box1.addBox(box2);
+//
+//	// Report Box 1 Object
+//	box1.report();
+//
+//	// Remove Mini Box from Box
+//	box1.removeBox();
+//
+//	// Report Box 1 Object
+//	box1.report();
+//
+//	// Remove Boxes
+//	box1.~Box();
+//	box2.~Box();
+//
+//	return 1;
+//}
