@@ -144,9 +144,14 @@
     <ClCompile Include="Task2_B.cpp" />
     <ClCompile Include="Task3_A.cpp" />
     <ClCompile Include="Task3_B.cpp" />
+    <ClCompile Include="Task4_Driver.cpp" />
+    <ClCompile Include="Task4_myLibrary.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Task1_B.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Task4_myLibrary.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
