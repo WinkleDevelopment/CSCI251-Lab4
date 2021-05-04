@@ -146,6 +146,7 @@
     <ClCompile Include="Task3_B.cpp" />
     <ClCompile Include="Task4_Driver.cpp" />
     <ClCompile Include="Task4_myLibrary.cpp" />
+    <ClCompile Include="Task5.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Task1_B.txt" />
